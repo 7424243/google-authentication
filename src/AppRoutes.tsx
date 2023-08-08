@@ -5,6 +5,10 @@ import { HomePage } from './components/homePage/HomePage';
 
 export const AppRoutes = () => useRoutes([
     {
+        path: '/',
+        element: <LoginPage />
+    },
+    {
         path: '/login',
         element: <LoginPage />
     },
