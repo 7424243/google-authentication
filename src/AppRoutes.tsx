@@ -6,10 +6,6 @@ import { ProtectedRoute } from './components/protectedRoute/ProtectedRoute';
 
 export const AppRoutes = () => useRoutes([
     {
-        path: '/',
-        element: <LoginPage />
-    },
-    {
         path: '/login',
         element: <LoginPage />
     },
@@ -18,7 +14,7 @@ export const AppRoutes = () => useRoutes([
         element: <OAuthCallback />,
     },
     {
-        path: '/home',
+        path: '/',
         element: <ProtectedRoute><HomePage /></ProtectedRoute>
     }
 ])

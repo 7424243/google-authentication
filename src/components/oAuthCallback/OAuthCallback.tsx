@@ -36,7 +36,7 @@ export const OAuthCallback = () => {
               const expirationTime = new Date(new Date().getTime() + 5 * 60 * 1000); // Set expiration to 5 minutes from now
               Cookies.set('access_token_expires', expirationTime.toISOString())
 
-              navigate('/home');
+              navigate('/');
             }
           })
           .catch((e) => {
