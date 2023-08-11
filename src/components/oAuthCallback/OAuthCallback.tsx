@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import { setCookie } from '../utilities';
 
 export const OAuthCallback = () => {
     const navigate = useNavigate();
     const location = useLocation();
-  
+
     useEffect(() => {
-      console.log('location: ', location)
       const params = new URLSearchParams(location.search);
       const authCode = params.get('code'); // Get the 'code' parameter
   
@@ -28,24 +27,19 @@ export const OAuthCallback = () => {
 
         axios
           .post(tokenUrl, data)
-          .then((res: any) => {
-            console.log('res: ', res);
-            const accessToken = res.data.access_token
+          .then(async (res: any) => {
+            const accessToken = res.data.access_token;
 
             if (accessToken) {
-              // TODO: save in cookie?
-
-              // Use the access token for making authenticated requests
-              // Redirect to your app's main route or dashboard
+              await setCookie('access_token', accessToken);
               navigate('/home');
             }
           })
           .catch((e) => {
-            // TODO: handle error
+            // TODO: handle error data {error: 'invalid_grant', error_description: 'Bad Request'}
             
             console.error('Token exchange failed: ', e);
-          })
-
+          });
       }
     }, [location, navigate]);
   
