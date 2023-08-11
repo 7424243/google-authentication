@@ -1,4 +1,4 @@
-import { getCookie } from '../utilities';
+import { getCookie } from '../../utilities';
 import { Navigate } from "react-router-dom";
 
 

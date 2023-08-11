@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { setCookie } from '../utilities';
+import { setCookie } from '../../utilities';
 import Cookies from 'js-cookie';
 
 export const OAuthCallback = () => {
@@ -41,7 +41,7 @@ export const OAuthCallback = () => {
           })
           .catch((e) => {
             // TODO: handle error data {error: 'invalid_grant', error_description: 'Bad Request'}
-            
+          
             console.error('Token exchange failed: ', e);
           });
       }

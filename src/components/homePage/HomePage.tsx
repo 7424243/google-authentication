@@ -1,4 +1,4 @@
-import { removeCookie } from '../utilities';
+import { removeCookie } from '../../utilities';
 import { useNavigate } from 'react-router-dom';
 
 export const HomePage = () => {
