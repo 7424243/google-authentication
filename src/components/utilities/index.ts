@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 
 // Cookie Attributes
 const cookieConfig: any = {
-    expires: 1, // Set an expiration time (in days)
+    expires: new Date(new Date().getTime() + 5 * 60 * 1000), // Set an expiration time (5mins)
     secure: true, // Require HTTPS connection for the cookie
     sameSite: 'strict', // Enforce same-site cookie policy (recent browser default: 'Lax')
     // httpOnly: true, // Make the cookie HTTP-onlycook to prevent client-side access
